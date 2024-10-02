@@ -11,7 +11,7 @@
     <meta property="og:title" content="Genie Game 🧞" />
     <meta
       property="og:description"
-      content="Make your wishses, but be careful!"
+      content="predict or to wish? that is the question."
     />
     <meta
       property="og:image"
@@ -28,7 +28,13 @@
       <h1>running 🧞✨ ...</h1>
     </div>
 
+    <div class="tabs-bar" id="tabsbar">
+      <button onclick="window.location.href='/genie';" class="tbb selected" id="genie-tab" title="go to the main page">genie 🧞</button>
+      <button onclick="window.location.href='/genie/leaderboards';" class="tbb" id="leaderboard-tab" title="view the leaderboards">leaderboards 🏆</button>
+      <button onclick="window.location.href='/genie/collections';" class="tbb" id="collections-tab" title="view what has been wished">collections 📚</button>
+    </div>
     <div id="game-div">
+      <p id="uses" class="uses hidden">🧠 this has been asked 0 other times</p>
       <h2 id="guessing-text">
         what do you wish for? 🤔
       </h2>
@@ -49,8 +55,19 @@
       <p1 class="tiny-text">powered by <a href="https://cow.rip/" class="footer-link">quardo 🐮</a><br/></p1>
     </div>
 
+    <div class="account-div" id="account-div">
+      <h2 id="account-title">enter a username🎉 :</h2>
+      <span class="at-tag" id="at-tag">@ <input type="text" id="account-input-field" placeholder="username" oninput="checkAccountInput()"></span>
+      <p class="acc-reason" id="acc-reason"></p>
+
+      <div class="h-captcha" data-sitekey="d94442c6-3af0-4bf6-808e-251c2a8a07e2" data-theme="light" data-size="normal" data-captcha="true" id="h-captcha"></div>
+      <button class="acc-button" id="acc-button" onclick="createAccount()">✅ submit</button>
+    </div>
+
     <a class="titlecon" href="/">👻 ghost's games</a>
+    <p id="my-username" class="user">@</p>
 
     <script src="client.js" defer></script>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
   </body>
 </html>

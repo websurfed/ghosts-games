@@ -23,11 +23,12 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  z-index: 15;
 }
 
 .centermoji {
-  user-select: none; /* Prevent text selection */
-  pointer-events: none; /* Optional: prevent any click events */
+  user-select: none;
+  pointer-events: none;
   font-size: 170px;
   margin: 0
 }
@@ -72,6 +73,7 @@ body {
 
 .tiny-text {
   font-size: 14px;
+  color: #575757;
 }
 
 #guessing-text {
@@ -79,14 +81,15 @@ body {
   padding: 0;
   margin: 0;
   margin-bottom: -20px;
+  max-width: 25vw;
 }
 
 .predict-or-wish {
   margin-top: 10px;
   border-radius: 10px;
   border: solid 2px;
-  display: flex; /* Use Flexbox for alignment */
-  gap: 10px; /* Optional: space between items */
+  display: flex;
+  gap: 10px;
   padding: 7px;
 }
 
@@ -123,7 +126,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); /* Corrected to use a comma */
+  transform: translate(-50%, -50%);
   color: white;
 }
 
@@ -138,8 +141,120 @@ body {
   margin: 10px;
 
   transition: transform 0.1s ease;
+  z-index: 55;
 }
 
 .titlecon:hover {
   transform: scale(1.025);
+}
+
+.tbb {
+  cursor: pointer;
+  height: 40px;
+  background-color: white;
+  border: solid 2px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: "Comics", sans-serif;
+}
+
+.tbb.selected {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.tabs-bar {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: solid 0px; /* Disabled the border for now. Too big and too catchy. */
+  display: flex;
+  gap: 10px;
+  padding: 7px;
+
+  position: absolute;
+  top: 0;
+}
+
+.uses {
+  background: black;
+  padding: 8px 13px;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+.uses.hidden {
+  display: none;
+}
+
+.account-div {
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  background: white;
+
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-div.disabled {
+  display: none;
+}
+
+#account-input-field {
+  border: solid 2px black;
+  border-radius: 15px;
+  height: 27px;
+  font-size: 22px;
+  padding: 10px 7px;
+  width: 200px;
+  font-family: 'Comics';
+  outline: none;
+}
+
+.at-tag {
+  font-size: 23px;
+  color: gray;
+}
+
+.at-tag.typed {
+  color: black;
+}
+
+.acc-reason {
+  margin: 3px;
+  padding: 0;
+}
+
+.acc-button {
+  margin: 3px;
+  padding: 8px 15px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: solid 2px;
+  font-family: 'Comics';
+  cursor: pointer;
+}
+
+.user {
+  font-family: 'Comics';
+  font-weight: normal;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  text-decoration: underline;
+  color: gray;
+  text-align: right;
+  cursor: pointer;
 }

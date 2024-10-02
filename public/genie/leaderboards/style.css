@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'Comics';
+  src: url('https://cdn.glitch.global/9b0006d3-c9c6-4f08-aa1b-12b52b2efdee/ComicSansMS3.ttf?v=1727100968329') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Comics", sans-serif;
+}
+
+.leaderboard-container {
+  border: solid 2px;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+}
+
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0px 20px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.player-ranking {
+  font-size: 22px;
+  font-weight: bold;
+  border: solid 2px;
+  padding: 8px;
+  border-radius: 15px 8px 8px 15px;
+}
+
+.player-name {
+  font-size: 22px;
+  font-weight: bold;
+  border: solid 2px;
+  padding: 8px;
+  width: 100%;
+  margin: 0 6px;
+  border-radius: 8px;
+}
+
+.player-challenges {
+  font-size: 22px;
+  font-weight: bold;
+  border: solid 2px;
+  padding: 8px;
+  border-radius: 8px 15px 15px 8px;
+}
+
+.leaderboard-item {
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center align items */
+  margin-top: 20px;
+}
+
+.titlecon {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+
+  transition: transform 0.1s ease;
+}
+
+.titlecon:hover {
+  transform: scale(1.025);
+}
+
+.tbb {
+  cursor: pointer;
+  height: 40px;
+  background-color: white;
+  border: solid 2px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: "Comics", sans-serif;
+}
+
+.tbb.selected {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.tabs-bar {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: solid 0px; /* Disabled the border for now. Too big and too catchy. */
+  display: flex;
+  gap: 10px;
+  padding: 7px;
+
+  position: absolute;
+  top: 0;
+}
+
+.footer-div {
+  position: absolute;
+  bottom: 0%;
+  padding: 15px;
+  text-align: center;
+}
+
+.footer-link {
+  color: black;
+}
+
+.tiny-text {
+  font-size: 14px;
+  color: #575757;
+}
