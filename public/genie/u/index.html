@@ -17,11 +17,16 @@
           <img src="" id="pfp-img" class="pfp-img">
         </div>
         <div class="side-info" id="sinfo">
-          <h2 class="username-text" id="usr-name">@username</h2>
+          <div class="username-div">
+            <h2 class="username-text" id="usr-name">@username</h2>
+            <div class="edit-acc hidden" id="edit-acc-div">
+              <button id="edit-acc" onclick="redirectEditPage()">✏️ edit</button>
+            </div>
+          </div>
           <div class="id-div" id="id-div">
             <h3 class="id-text" id="id-text" title="the user's id">id: </h3>
             <button id="copy-btn" onclick="copyId()" title="copy id to clipboard">
-              <img src="https://cdn.glitch.global/614aa24f-1134-435e-97bb-6a0d58797ba4/solar--clipboard-bold-duotone.svg?v=1727913263340" class="copy-btn-img">
+              <img src="https://cdn.glitch.global/e5a6e155-6c95-4d94-9d63-68788183eb64/copy-icon.svg?v=1727994903961" class="copy-btn-img">
             </button>
           </div>
           <div class="cr-div" id="cr-div">

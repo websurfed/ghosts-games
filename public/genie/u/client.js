@@ -43,3 +43,41 @@ async function copyId() {
     console.error("couldnt copy cuz: ", err);
   }
 }
+
+function redirectEditPage() {
+  window.location = "/genie/s/edit"
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+async function checkAccount() {
+  const userCookie = getCookie('genieSession');
+  if (userCookie) {
+    try {
+      const response = await fetch(`/genie/get/account?c=${userCookie}`);
+      const data = await response.json();
+      if (data.id && data.username && data.challenges_completed !== undefined) {
+        const { username } = data;
+        return username;
+      } else {
+        alert('😞 something went wrong while retrieving your account info.');
+        return null;
+      }
+    } catch {
+      alert('⚠️ failed to fetch account data. please try again later.');
+      return null;
+    }
+  }
+  return null;
+}
+
+(async () => {
+  const username = await checkAccount();
+  if (username && username === usernameWithAt.slice(1)) {
+    document.getElementById('edit-acc-div').className = "edit-acc"
+  }
+})();

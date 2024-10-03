@@ -148,8 +148,8 @@ async function handleWishOrPrediction(mode, wish) {
     If the message starts with 'PREDICT MODE:' its using predict mode, if it's 'WISH MODE:' then they're in wish mode.`;
   let prompt = '';
 
-  if (wish.length > 80) {
-    return { answer: '❌ max character count is 80', count: 0, failed: true }
+  if (wish.length > 140) {
+    return { answer: '❌ max character count is 140', count: 0, failed: true }
   }
 
   if (mode === 'wish') {
