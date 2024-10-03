@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "18.x" // Specify the Node.js version here
+  },
   "dependencies": {
     "@types/node": "^18.0.6",
     "axios": "^1.7.7",
