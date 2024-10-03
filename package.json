@@ -20,7 +20,7 @@
     "express-rate-limit": "^7.4.0",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.7",
-    "openai": "^4.63.0",
+    "openai": "^4.67.1",
     "path": "^0.12.7",
     "sqlite3": "^5.1.7"
   }

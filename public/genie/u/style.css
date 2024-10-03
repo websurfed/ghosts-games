@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'Comics';
+  src: url('https://cdn.glitch.global/9b0006d3-c9c6-4f08-aa1b-12b52b2efdee/ComicSansMS3.ttf?v=1727100968329') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Comics", sans-serif;
+}
+
+.titlecon {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+
+  transition: transform 0.1s ease;
+}
+
+.titlecon:hover {
+  transform: scale(1.025);
+}
+
+.footer-div {
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  text-align: center;
+}
+
+.footer-link {
+  color: black;
+}
+
+.tiny-text {
+  font-size: 14px;
+  color: #575757;
+}
+
+.pfp-img {
+  width: 132px;
+  border-radius: 20px;
+  border: solid 3px black;
+  object-fit: cover;
+}
+
+.container {
+  border: solid 2px black;
+  width: 77vw;
+  height: 77vh;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  
+  top: 0;
+  height: 32%;
+  align-items: center;
+  padding: 20px;
+}
+
+.id-div {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+#copy-btn {
+  margin-top: 3px;
+  height: 32px;
+  width: 32px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+#copy-btn img {
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.4;
+}
+
+#copy-btn img:hover {
+  transform: scale(1.1);
+  opacity: 0.65;
+}
+
+.id-div h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+  font-weight: normal;
+}
+
+.username-text {
+  margin: 0;
+  padding: 0;
+
+  margin-bottom: 10px;
+}
+
+.side-info {
+  margin-left: 15px;
+}
+
+.cr-div {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  padding: 0;
+}
+
+.cr-div h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: gray;
+  text-align: left;
+  font-weight: normal;
+}

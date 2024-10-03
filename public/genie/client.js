@@ -271,6 +271,8 @@ async function createAccount() {
 
         // Prevent another creation:
         hcaptcha.reset()
+        window.location.reload()
+        
       } catch (error) {
         alert(`error sending request 🔥`)
       }
@@ -298,6 +300,8 @@ function loadAccount() {
 
         // Make changes before alerting:
         document.getElementById('my-username').textContent = `@${username}`
+        document.getElementById('my-username').href = `/genie/u/@${username}`
+
         document.getElementById('my-username').title = `id=${id}`
       } else {
         alert('😞 something went wrong while retrieving your account info.');

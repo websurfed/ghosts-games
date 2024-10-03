@@ -65,7 +65,7 @@ async function storeResponse(question, answer) {
 
 const openai = new OpenAI({
     apiKey: env.QUARDO_KEY,
-    baseURL: 'https://reverse.mubi.tech/v1'
+    baseURL: 'https://proxy.mubilop.tech/v1'
 });
 
 app.use(bodyParser.json());
@@ -228,6 +228,7 @@ const user_db = new sqlite3.Database('./genieUsers.db', (err) => {
         id TEXT PRIMARY KEY,
         cookie TEXT NOT NULL,
         username TEXT NOT NULL,
+        profile_pic TEXT NOT NULL,
         challenges_completed INTEGER DEFAULT 0,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
@@ -304,6 +305,8 @@ app.post('/genie/create/account', async (req, res) => {
   const challengesCompleted = 0; // Default value for challenges completed
   const randomCookieValue = `${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}${crypto.randomUUID()}`; // Generate random cookie value
 
+  const defaultPic = "https://cdn.glitch.global/614aa24f-1134-435e-97bb-6a0d58797ba4/default_pic.webp?v=1727916658077"
+
   // Check if the username already exists in the database
   user_db.get(`SELECT username FROM users WHERE username = ?`, [username], (err, row) => {
     if (err) {
@@ -316,9 +319,9 @@ app.post('/genie/create/account', async (req, res) => {
 
     // Insert the new user into the database
     user_db.run(`
-      INSERT INTO users (cookie, id, username, challenges_completed) 
-      VALUES (?, ?, ?, ?)`,
-      [randomCookieValue, userId, username, challengesCompleted],
+      INSERT INTO users (cookie, id, username, challenges_completed, profile_pic) 
+      VALUES (?, ?, ?, ?, ?)`,
+      [randomCookieValue, userId, username, challengesCompleted, defaultPic],
       (err) => {
         if (err) {
           return res.status(500).json({ error: `database error: ${err.message}` });
@@ -360,6 +363,47 @@ app.get('/genie/get/account', (req, res) => {
       id: row.id,
       username: row.username,
       challenges_completed: row.challenges_completed,
+    });
+  });
+});
+
+// Users page
+app.get('/genie/u/@:username', (req, res) => {
+  const { username } = req.params;
+
+  // Check if the route has the '@' symbol
+  if (username.includes('@')) {
+    return res.status(404).send('404 Page Not Found');
+  }
+
+  // Serve the profile page for the username
+  res.sendFile(path.join(__dirname, 'public', 'genie/u/index.html'));
+});
+
+app.get('/genie/users/:username', (req, res) => {
+  const { username } = req.params;
+
+  if (!username) {
+    return res.status(404).send('404 Page Not Found');
+  }
+
+  // Fetch user info based on username
+  user_db.get(`SELECT id, username, challenges_completed, created_at, profile_pic FROM users WHERE username = ?`, [username], (err, row) => {
+    if (err) {
+      return res.status(500).json({ error: `database error: ${err.message}` });
+    }
+
+    if (!row) {
+      return res.status(404).json({ error: 'user not found' });
+    }
+
+    // Send back user info
+    return res.json({
+      id: row.id,
+      username: row.username,
+      challenges_completed: row.challenges_completed,
+      creation: row.created_at,
+      profile_pic: row.profile_pic
     });
   });
 });
